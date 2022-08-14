@@ -6,12 +6,13 @@ const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 const cors = require('cors');
 const app = express();
+const spacesRoute= require('./routes/spacesRoute');
 
 //Express App Usage
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(pino);
 app.use(cors());
-app.use('/assets/js', express.static(__dirname+'/assets/js'));
+app.use('/assets/js', express.static(__dirname + '/assets/js'));
 
 //Express App Settings
 app.set('view engine', 'ejs');
@@ -40,7 +41,7 @@ app.get('/speechapi/token', async(req, res, next) => {
     }
 });
 
-
+app.use('/spacesapplication', spacesRoute);
 //Make Express App live
 app.listen(3001, ()=>{
     console.log('Server is Live on port 3001');

@@ -1,3 +1,3 @@
-function listen(){
-    
+function redirect(path){
+    location.href = path;
 }
