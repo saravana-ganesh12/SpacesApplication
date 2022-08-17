@@ -12,7 +12,6 @@ const spacesRoute= require('./routes/spacesRoute');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(pino);
 app.use(cors());
-app.use('/assets/js', express.static(__dirname + '/assets/js'));
 
 //Express App Settings
 app.set('view engine', 'ejs');

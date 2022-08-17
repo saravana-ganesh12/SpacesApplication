@@ -12,9 +12,11 @@ const authClient = new auth.OAuth2User({
 const client = new Client(authClient);
 
 const STATE = "my_state";
+
 router.get('/',(req, res)=>{
     res.render('pages/index');
 });
+
 router.get('/login', async (req, res)=>{
     const authURL = authClient.generateAuthURL({
         state: STATE,
@@ -23,6 +25,7 @@ router.get('/login', async (req, res)=>{
     });
     res.redirect(authURL);
 });
+
 router.get('/callback', async (req, res)=>{
     try{
         const {code, state} = req.query;
@@ -30,20 +33,25 @@ router.get('/callback', async (req, res)=>{
             return res.status(500).send("State isn't matching");
         }
         await authClient.requestAccessToken(code);
-        res.redirect("http://127.0.0.1:3000");
+        res.redirect("http://127.0.0.1:3000/spacesapplication");
     }catch(err){
         console.log(err);
     }
 });
-router.get('/searchspaces',async(req, res)=>{
+
+
+router.get('/searchspaces/:query',async(req, res)=>{
     try{
+        
         const spacesSearch = await client.spaces.searchSpaces({
-            query:"games",
-            "space.fields": ["title","host_ids"]
+            query: req.params.query,
+            "state": ["live"],
+            "space.fields": ["title"],
+            
         });
         res.status(200).send(spacesSearch);
     }catch(err){
-        res.send("Access Token is Required");
+        res.status(404).send(err);
         console.log(err);
     }
 });
