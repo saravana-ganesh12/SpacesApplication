@@ -49,7 +49,7 @@ export default class Spaces extends Component{
         const spaces = await getSpaces(String(result.text.split(/[.\s]+/).join('')).trim());
         const spacesResponse = spaces.data; 
         if(spaces.status === 404){
-          displayText= "Error in getting the Spaces.....login again and try";
+          displayText= "Error in getting the Spaces.....login again and try !";
           spacesFound=  [];
         }
         else if(spaces.status === 200){
@@ -76,20 +76,22 @@ export default class Spaces extends Component{
   render(){
     return(
       <Container className='app-container'>
-      <h1 className="display-4 mb-3">Search for Spaces</h1>
+      <h1 style={{ marginTop: "50px", marginLeft:"340px", color:"white"}}>Search for Spaces</h1>
       <div className="row main-container">
-      <div className="col-6">
-      <i className="fas fa-microphone fa-lg md-2" onClick={() => this.audioFromMicrophone()}></i>
-        &nbsp;&nbsp;Convert speech to text from your mic.
+      <div className="col-6" style={{ position:"relative", bottom:"140px",marginTop: "100px", marginLeft:"340px", color:"white"}}>
+      <i className="fas fa-microphone fa-lg md-2" onClick={() => this.audioFromMicrophone()} style={{fontSize:"70px", marginLeft:"115px", position:"relative", bottom: "15px", marginTop:"0px"}}></i>
       </div>
       <br/>
       <br/>
-      <div className='col-xl-10 output-display rounded'>
-      <code>{this.state.displayText}</code>
+      <div className='col-10 output-display rounded' style={{ marginLeft:"104px", position:"relative", bottom:"120px"}}>
       <br/>
       <br/>
-      <ul>
-        {this.state.spacesFound.map((i) => (<><li>{i.title}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;https://twitter.com/i/spaces/{i.id}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;{i.state}</li><br/></>))}
+      <code style={{fontSize:"25px", color:"white", marginLeft:"115px"}}>{this.state.displayText}</code>
+      <br/>
+      <br/>
+      <br/>
+      <ul style={{fontSize:"20px", color:"white"}}>
+        {this.state.spacesFound.map((i) => (<><li>{i.title}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href={`https://twitter.com/i/spaces/${i.id}`} target='_blank'>https://twitter.com/i/spaces/{i.id}</a>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;{i.state}</li><br/></>))}
       </ul> 
       </div>
       </div>

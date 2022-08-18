@@ -1,13 +1,19 @@
 import React from 'react';
-
 function Home(){
     const redirect = (path) => {
         window.location.href = path;
     }
     return (
         <div>
-        <h1>Search for Twitter Spaces</h1>
-        <button onClick={redirect.bind(this,"http://127.0.0.1:3001/spacesapplication/login")}>Login</button>
+        <h1 style={{ marginTop: "80px", marginLeft:"450px", color:"white"}}>Voice controlled Search tool for Twitter Spaces on Desktop</h1>
+        <button style={{ marginTop: "90px", marginLeft:"850px", fontSize:"30px" ,
+          border: "none",
+          background:"white",
+          color:"#1DA1F2",
+          padding: "15px 32px",
+          textAlign: "center",
+          display: "inline-block",
+          fontSize: "28px"}} onClick={redirect.bind(this,"http://127.0.0.1:3001/spacesapplication/login")}>Get Started</button>
         </div>);
 }
 
