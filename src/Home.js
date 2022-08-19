@@ -5,7 +5,7 @@ function Home(){
     }
     return (
         <div>
-        <h1 style={{ marginTop: "80px", marginLeft:"450px", color:"white"}}>Voice controlled Search tool for Twitter Spaces on Desktop</h1>
+        <h1 style={{ marginTop: "80px", marginLeft:"400px", color:"white"}}>Voice controlled Search tool for Twitter Spaces on Desktop / Web</h1>
         <button style={{ marginTop: "90px", marginLeft:"850px", fontSize:"30px" ,
           border: "none",
           background:"white",
