@@ -13,7 +13,7 @@ function Home(){
           padding: "15px 32px",
           textAlign: "center",
           display: "inline-block",
-          fontSize: "28px"}} onClick={redirect.bind(this,"http://127.0.0.1:3001/spacesapplication/login")}>Get Started</button>
+          fontSize: "28px"}} onClick={redirect.bind(this,"http://127.0.0.1:3001/spacesapplication/login")}>Click here to Get Started</button>
         </div>);
 }
 
