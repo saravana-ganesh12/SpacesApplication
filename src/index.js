@@ -16,7 +16,7 @@ root.render(
     <BrowserRouter>
     <Routes>
         <Route exact path='/' element={<Home/>}/>
-        <Route exact path='/spacesapplication' element={<Spaces/>}/>
+        <Route exact path='/search' element={<Spaces/>}/>
     </Routes>
     </BrowserRouter>
 );

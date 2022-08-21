@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const {Client, auth} = require('twitter-api-sdk');
+const axios = require('axios');
 
 const authClient = new auth.OAuth2User({
     client_id: process.env.CLIENTID,
     client_secret: process.env.CLIENTSECRET,
-    callback: "http://127.0.0.1:3001/spacesApplication/callback",
+    callback: "http://127.0.0.1:3001/spacesapplication/callback",
     scopes: ['tweet.read','users.read','space.read']
 });
 
@@ -59,7 +60,7 @@ router.get('/callback', async (req, res)=>{
             return res.status(500).send("State isn't matching");
         }
         await authClient.requestAccessToken(code);
-        res.redirect("http://127.0.0.1:3000/spacesapplication");
+        res.redirect("http://127.0.0.1:3000/search");
     }catch(err){
         console.log(err);
     }
