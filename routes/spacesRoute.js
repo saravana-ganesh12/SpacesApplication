@@ -18,7 +18,7 @@ router.get('/',(req, res)=>{
 });
 
 //Expose GET Method for getting the token from API
-app.get('/speechapi/token', async(req, res, next) => {
+router.get('/speechapi/token', async(req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
     const KEY = process.env.KEY;
     const REGION = process.env.REGION;
