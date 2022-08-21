@@ -6,7 +6,7 @@ export async function getToken(){
     if(cookieToken === undefined)
     {
         try{
-            const response = await axios.get('http://127.0.0.1:3001/speechapi/token');
+            const response = await axios.get('http://127.0.0.1:3001/spacesapplication/speechapi/token');
             const token = response.data.token;
             const region = response.data.region;
             cookie.set('SpeechAPIToken', region + ':' + token, {maxAge: 540, path:'/'});
